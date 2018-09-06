@@ -1,0 +1,11 @@
+<div class="recipe panel panel-default">
+  <div class='panel-heading'>
+    <h3 class='panel-title'>{{ recipe.title }}</h3>
+  </div>
+  <div class='panel-body'>
+    <div style='float:right'>
+        <img src="{{ recipe.cover_photo ? recipe.cover_photo : 'https://thumbs.dreamstime.com/t/empty-bowl-single-soup-isolated-white-background-46324011.jpg' }}" style="width: 150px; height: 150px"/>
+    </div>
+    <p>{{ recipe.description }}</p>
+  </div>
+</div>

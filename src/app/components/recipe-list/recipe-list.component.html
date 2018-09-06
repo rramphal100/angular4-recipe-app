@@ -1,0 +1,5 @@
+<div style="margin: 10px"><h1>These are my Recipes <small class="text-faded">My fave recipes are here!</small></h1>
+    <div *ngFor="let recipe of recipes">
+        <app-recipe-summary [recipe]="recipe"></app-recipe-summary>
+    </div>
+</div>
