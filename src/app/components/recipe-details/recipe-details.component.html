@@ -1,4 +1,5 @@
-<div class="recipe panel panel-default" (click)="userClicked()">
+<p><a (click)="goBackButtonPressed()" style="color:blue; cursor:pointer">Go Back</a></p>
+<div class="recipe panel panel-default">
   <div class='panel-heading'>
     <h3 class='panel-title'>{{ recipe.title }}</h3>
   </div>
@@ -12,5 +13,16 @@
     <div style="float: left; font-weight: bold; width: 150px">Feeds This Many:</div>
     <div>{{ recipe.feeds }}</div>
   </div>
+
+  <h4>Ingredients</h4>
+  <ul>
+    <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient.ingredient }} ({{ ingredient.measure }})</li>
+  </ul>
+
+  <h4>Instructions</h4>
+  <ol>
+    <li *ngFor="let instruction of recipe.instructions">{{ instruction.instruction }} </li>
+  </ol>
+
   <div style="font-size: 75%; cursor:pointer; padding: 5px" (click)='zoomClicked()'>Zoom</div>
 </div>

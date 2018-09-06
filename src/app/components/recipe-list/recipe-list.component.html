@@ -1,5 +1,31 @@
-<div style="margin: 10px"><h1>These are my Recipes <small class="text-faded">My fave recipes are here!</small></h1>
-    <div *ngFor="let recipe of recipes">
-        <app-recipe-summary [recipe]="recipe"></app-recipe-summary>
+<div style="float:right">
+    <input type="button" value="Toggle Background" (click)="toggleBackground()"/>
+    <input type="button" value="Toggle Font Size" (click)="toggleFontSize()"/>
+</div>
+<div style="margin: 10px" [ngClass]="current_classes" [ngStyle]="current_styles"><h1>These are my Recipes <small class="text-faded">My fave recipes are here!</small></h1>
+    <app-recipe-summary *ngFor="let recipe of recipes" [recipe]="recipe" (zoomIn)="zoomInOnRecipe(recipe)" (userClick)="userClickedOnRecipe($event)"></app-recipe-summary>
+
+    <div style="clear: both"></div>
+    <div class="newrecipe panel panel-default">
+        <div class="panel-heading">
+            <h4>Add a New Recipe</h4>
+        </div>
+        <div class="panel-body">
+            <div class="input-group">
+                <input type="text" [(ngModel)]="recipe_in_progress.title" class="form-control" placeholder="Recipe Title" name="Title" style="width: 400px"/>
+            </div>
+            <div class="input-group">
+                <textarea type="text" [(ngModel)]="recipe_in_progress.description" class="form-control" placeholder="Description" name="Description" style="width: 400px"></textarea>
+            </div>
+            <div class="input-group">
+                <input type="text" [(ngModel)]="recipe_in_progress.feeds" class="form-control" placeholder="Feeds This Many" name="Feeds_This_Many" style="width: 400px"/>
+            </div>
+            <div class="input-group">
+                <input type="text" [(ngModel)]="recipe_in_progress.preparation_time" class="form-control" placeholder="Preparation Time" name="Preparation_Time" style="width: 400px"/>
+            </div>
+            <div class="input-group">
+                <input type="button" value="Add Recipe" (click)="addRecipeClicked()"/>
+            </div>
+        </div>
     </div>
 </div>
